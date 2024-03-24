@@ -5,11 +5,12 @@ import {CadastroComponent} from "./components/cadastro/cadastro.component";
 import {TarefasComponent} from "./components/tarefas/tarefas.component";
 import {CadastrarTarefaComponent} from "./components/cadastrar-tarefa/cadastrar-tarefa.component";
 import {ExcluirTarefaComponent} from "./components/excluir-tarefa/excluir-tarefa.component";
+import {EditarTarefaComponent} from "./components/editar-tarefa/editar-tarefa.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginComponent, CadastroComponent, TarefasComponent, CadastrarTarefaComponent, ExcluirTarefaComponent],
+  imports: [RouterOutlet, LoginComponent, CadastroComponent, TarefasComponent, CadastrarTarefaComponent, ExcluirTarefaComponent, EditarTarefaComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
