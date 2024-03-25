@@ -3,18 +3,27 @@
     <div class="card-body">
       <h4 class="card-title mb-4">Cadastrar Tarefa</h4>
 
-      <form class="col-xl-8">
+      <div class="alert alert-success" role="alert" *ngIf="responseMessage != ''">
+        {{ responseMessage }}
+      </div>
+
+      <form [formGroup]="cadastrarTarefaForm" class="col-xl-8">
         <div class="row mb-4">
           <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Descrição</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" id="horizontal-firstname-input" placeholder="Digite a descrição">
+            <input type="text" formControlName="descricao" class="form-control" id="horizontal-firstname-input" placeholder="Digite a descrição">
+            <div class="error" *ngIf="(cadastrarTarefaForm.controls['descricao'].dirty || cadastrarTarefaForm.controls['descricao'].touched) && cadastrarTarefaForm.controls['descricao'].errors?.['required']">
+              Digite a descrição.
+            </div>
           </div>
         </div>
 
         <div class="row justify-content-end">
           <div class="col-sm-9">
             <div>
-              <button type="submit" class="btn btn-primary w-md">Cadastrar</button>
+              <button type="submit" class="btn btn-primary w-md"
+                      [disabled]="cadastrarTarefaForm.status === 'INVALID' && !cadastrarTarefaForm.pending"
+                      (click)="cadastrarTarefa()">Cadastrar</button>
             </div>
           </div>
         </div>

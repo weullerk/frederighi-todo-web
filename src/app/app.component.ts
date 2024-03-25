@@ -9,6 +9,7 @@ import {EditarTarefaComponent} from "./components/editar-tarefa/editar-tarefa.co
 import {CadastroService} from "./services/CadastroService";
 import {HttpClientModule} from "@angular/common/http";
 import {LoginService} from "./services/LoginService";
+import {TarefaService} from "./services/TarefaService";
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,7 @@ import {LoginService} from "./services/LoginService";
     CadastrarTarefaComponent,
     ExcluirTarefaComponent,
     EditarTarefaComponent],
-  providers: [CadastroService, LoginService],
+  providers: [CadastroService, LoginService, TarefaService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

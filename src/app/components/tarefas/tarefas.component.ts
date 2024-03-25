@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-tarefas',
   standalone: true,
-  imports: [],
+  imports: [
+    RouterLink
+  ],
   templateUrl: './tarefas.component.html',
   styleUrl: './tarefas.component.scss'
 })

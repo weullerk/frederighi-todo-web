@@ -13,4 +13,7 @@ export const routes: Routes = [
   { path: 'cadastrar-tarefa', component: CadastrarTarefaComponent, canActivate: [AuthGuard] },
   { path: 'editar-tarefa', component: EditarTarefaComponent, canActivate: [AuthGuard] },
   { path: 'excluir-tarefa', component: ExcluirTarefaComponent, canActivate: [AuthGuard] },
+  // { path: 'cadastrar-tarefa', component: CadastrarTarefaComponent },
+  // { path: 'editar-tarefa', component: EditarTarefaComponent },
+  // { path: 'excluir-tarefa', component: ExcluirTarefaComponent },
 ];

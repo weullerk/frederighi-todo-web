@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     const loginData = this.loginForm.value;
-    console.log(loginData);
+
     this.loginService.login(loginData).subscribe(value => {
       this.store.dispatch(new Login(value));
     });
