@@ -18,41 +18,45 @@
         <div>
           <a href="index.html">
             <div class="avatar-md profile-user-wid mb-4">
-                                            <span class="avatar-title rounded-circle bg-light">
-                                                <img src="assets/images/logo.svg" alt="" class="rounded-circle" height="34">
-                                            </span>
+              <span class="avatar-title rounded-circle bg-light">
+                  <img src="assets/images/logo.svg" alt="" class="rounded-circle" height="34">
+              </span>
             </div>
           </a>
         </div>
         <div class="p-2">
-          <form class="needs-validation" novalidate action="index.html">
+          <form [formGroup]="cadastroForm" class="" novalidate>
 
             <div class="mb-3">
               <label for="name" class="form-label">Nome</label>
-              <input type="text" class="form-control" id="name" placeholder="Digite seu nome" required>
-              <div class="invalid-feedback">
-                Digite seu nome
+              <input type="text" class="form-control" id="name" placeholder="Digite seu nome" formControlName="nome" required>
+              <div class="error"  *ngIf="(cadastroForm.controls['nome'].dirty || cadastroForm.controls['nome'].touched) && cadastroForm.controls['nome'].errors?.['required']">
+                Digite seu nome.
               </div>
             </div>
 
             <div class="mb-3">
               <label for="useremail" class="form-label">Email</label>
-              <input type="email" class="form-control" id="useremail" placeholder="Digite seu email" required>
-              <div class="invalid-feedback">
-                Digite seu email
+              <input type="email" class="form-control" id="useremail" placeholder="Digite seu email" formControlName="email" required>
+              <div class="error" *ngIf="(cadastroForm.controls['email'].dirty || cadastroForm.controls['email'].touched) && cadastroForm.controls['email'].errors?.['required']">
+                Digite seu email.
+              </div>
+              <div class="error" *ngIf="(cadastroForm.controls['email'].dirty || cadastroForm.controls['email'].touched) && cadastroForm.controls['email'].errors?.['emailExists']">
+                O email já está sendo utilizado.
               </div>
             </div>
 
             <div class="mb-3">
               <label for="userpassword" class="form-label">Senha</label>
-              <input type="password" class="form-control" id="userpassword" placeholder="Digite sua senha" required>
-              <div class="invalid-feedback">
-                Digite sua senha
+              <input type="password" class="form-control" id="userpassword" placeholder="Digite sua senha" formControlName="senha" required>
+              <div class="error" *ngIf="(cadastroForm.controls['senha'].dirty || cadastroForm.controls['senha'].touched) && cadastroForm.controls['senha'].errors?.['required']">
+                Digite sua senha.
               </div>
             </div>
 
             <div class="mt-4 d-grid">
-              <button class="btn btn-primary waves-effect waves-light" type="submit">Cadastrar</button>
+              <button class="btn btn-primary waves-effect waves-light" type="submit"
+                      [disabled]="cadastroForm.status === 'INVALID' && cadastroForm.pending == false">Cadastrar</button>
             </div>
 
             <div class="mt-4 text-center">
