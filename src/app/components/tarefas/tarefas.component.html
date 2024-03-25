@@ -11,17 +11,24 @@
       <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
         <thead>
         <tr>
-          <th>Selecionar</th>
+          <th>Id</th>
           <th>Descrição</th>
           <th>Ações</th>
         </tr>
         </thead>
 
         <tbody>
-        <tr>
-          <td class="col-1"><input type="checkbox" /></td>
-          <td>System Architect</td>
-          <td class="col-3"><i class="bx bx-edit" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-original-title="Editar"></i><i class="bx bx-trash" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-original-title="Excluir"></i></td>
+        <tr *ngFor="let tarefa of tarefas?.tarefas; index as i">
+          <td class="col-1">{{ tarefa.id }}</td>
+          <td>{{ tarefa.descricao }}</td>
+          <td class="col-3">
+            <i class="bx bx-edit" title="Editar"
+               style="cursor: pointer; width: 1rem"
+               (click)="router.navigate(['editar-tarefa/' + tarefa.id])"></i>
+            <i class="bx bx-trash" title="Excluir"
+               style="cursor: pointer; width: 1rem"
+               (click)="router.navigate(['excluir-tarefa/' + tarefa.id])"></i>
+          </td>
         </tr>
         </tbody>
       </table>
