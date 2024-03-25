@@ -8,6 +8,7 @@ import {ExcluirTarefaComponent} from "./components/excluir-tarefa/excluir-tarefa
 import {EditarTarefaComponent} from "./components/editar-tarefa/editar-tarefa.component";
 import {CadastroService} from "./services/CadastroService";
 import {HttpClientModule} from "@angular/common/http";
+import {LoginService} from "./services/LoginService";
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,7 @@ import {HttpClientModule} from "@angular/common/http";
     CadastrarTarefaComponent,
     ExcluirTarefaComponent,
     EditarTarefaComponent],
-  providers: [CadastroService],
+  providers: [CadastroService, LoginService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
