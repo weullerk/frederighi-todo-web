@@ -8,11 +8,22 @@ import {ExcluirTarefaComponent} from "./components/excluir-tarefa/excluir-tarefa
 import {EditarTarefaComponent} from "./components/editar-tarefa/editar-tarefa.component";
 import {CadastroService} from "./services/CadastroService";
 import {HttpClientModule} from "@angular/common/http";
+import {StoreModule} from "@ngrx/store";
+import {authReducer} from "./reducers/auth.reducer";
+import {reducers} from "./reducers/app.reducer";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HttpClientModule, LoginComponent, CadastroComponent, TarefasComponent, CadastrarTarefaComponent, ExcluirTarefaComponent, EditarTarefaComponent],
+  imports: [
+    RouterOutlet,
+    HttpClientModule,
+    LoginComponent,
+    CadastroComponent,
+    TarefasComponent,
+    CadastrarTarefaComponent,
+    ExcluirTarefaComponent,
+    EditarTarefaComponent],
   providers: [CadastroService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
