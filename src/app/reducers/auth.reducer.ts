@@ -1,5 +1,6 @@
 import {AuthModel} from "../models/AuthModel";
 import {AuthActions, AuthActionTypes} from "../actions/auth.action";
+import {createFeatureSelector, createSelector} from "@ngrx/store";
 
 export interface AuthState {
   access_token: string;
@@ -25,3 +26,9 @@ export function authReducer(state = initialState, action: AuthActions) : AuthSta
     default: return state;
   }
 }
+
+export const getAuth = createFeatureSelector<AuthState>('auth');
+export const getSignedIn = createSelector(
+  getAuth,
+  (state: AuthState) => state.access_token
+);

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {LoginComponent} from "./components/login/login.component";
 import {CadastroComponent} from "./components/cadastro/cadastro.component";
@@ -8,9 +8,6 @@ import {ExcluirTarefaComponent} from "./components/excluir-tarefa/excluir-tarefa
 import {EditarTarefaComponent} from "./components/editar-tarefa/editar-tarefa.component";
 import {CadastroService} from "./services/CadastroService";
 import {HttpClientModule} from "@angular/common/http";
-import {StoreModule} from "@ngrx/store";
-import {authReducer} from "./reducers/auth.reducer";
-import {reducers} from "./reducers/app.reducer";
 
 @Component({
   selector: 'app-root',
