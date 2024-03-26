@@ -13,14 +13,16 @@
         <tr>
           <th>Id</th>
           <th>Descrição</th>
+          <th>Status</th>
           <th>Ações</th>
         </tr>
         </thead>
 
         <tbody>
-        <tr *ngFor="let tarefa of tarefas?.tarefas; index as i">
+        <tr *ngFor="let tarefa of tarefas?.tarefas; index as i" [ngStyle]="{'font-weight': tarefa.status == 'pendente' ? 'normal' : 'bold'}">
           <td class="col-1">{{ tarefa.id }}</td>
           <td>{{ tarefa.descricao }}</td>
+          <td>{{ tarefa.status == 'pendente' ? 'Pendente' : 'Concluído' }}</td>
           <td class="col-3">
             <i class="bx bx-edit" title="Editar"
                style="cursor: pointer; width: 1rem"

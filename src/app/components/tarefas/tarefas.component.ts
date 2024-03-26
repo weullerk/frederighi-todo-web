@@ -4,12 +4,12 @@ import {TarefaService} from "../../services/TarefaService";
 import {State} from "../../reducers/app.reducer";
 import {Store} from "@ngrx/store";
 import {TarefasModel} from "../../models/TarefasModel";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgStyle} from "@angular/common";
 
 @Component({
   selector: 'app-tarefas',
   standalone: true,
-  imports: [RouterLink, NgForOf],
+  imports: [RouterLink, NgForOf, NgStyle],
   templateUrl: './tarefas.component.html',
   styleUrl: './tarefas.component.scss'
 })
