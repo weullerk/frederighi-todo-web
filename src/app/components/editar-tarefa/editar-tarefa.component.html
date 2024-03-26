@@ -2,18 +2,46 @@
   <div class="card">
     <div class="card-body">
       <h4 class="card-title mb-4">Editar Tarefa</h4>
-      <form class="col-xl-8">
+
+      <div class="alert alert-success" role="alert" *ngIf="operationResponse != ''">
+        {{ operationResponse }}
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="errorResponse != ''">
+        {{ errorResponse }}
+      </div>
+
+      <form [formGroup]="editarTarefaForm" class="col-xl-8">
+
         <div class="row mb-4">
           <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Descrição</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" id="horizontal-firstname-input" placeholder="Digite a descrição">
+            <input formControlName="descricao" type="text" class="form-control" id="horizontal-firstname-input" [value]="descricao" placeholder="Digite a descrição">
+            <div class="error" *ngIf="(editarTarefaForm.controls['descricao'].dirty || editarTarefaForm.controls['descricao'].touched) && editarTarefaForm.controls['descricao'].errors?.['required']">
+              Digite a descrição.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Descrição</label>
+          <div class="col-sm-9">
+            <select formControlName="status" class="form-select">
+              <option value="">Selecione..</option>
+              <option value="pendente" [selected]="status == 'pendente'">Pendente</option>
+              <option value="concluído" [selected]="status == 'concluído'">Concluído</option>
+            </select>
+            <div class="error" *ngIf="(editarTarefaForm.controls['status'].dirty || editarTarefaForm.controls['status'].touched) && editarTarefaForm.controls['status'].errors?.['required']">
+              Selecione o status.
+            </div>
           </div>
         </div>
 
         <div class="row justify-content-end">
           <div class="col-sm-9">
             <div>
-              <button type="submit" class="btn btn-primary w-md">Editar</button>
+              <button type="submit" class="btn btn-primary w-md"
+                      [disabled]="editarTarefaForm.status === 'INVALID' && !editarTarefaForm.pending"
+                      (click)="editarTarefa()">Editar</button>
               <button type="button" class="btn btn-danger w-md" style="margin-left: 1rem;">Cancelar</button>
             </div>
           </div>

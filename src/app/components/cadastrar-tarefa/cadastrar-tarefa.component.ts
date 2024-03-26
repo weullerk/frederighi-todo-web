@@ -38,7 +38,9 @@ export class CadastrarTarefaComponent implements OnInit {
     const formData = this.cadastrarTarefaForm.value;
     this.tarefaService.cadastrarTarefa(formData, this.authStoreState.access_token)
       .subscribe(value => {
-        this.responseMessage = value.message;
+        if (value.message) {
+          this.responseMessage = value.message;
+        }
     })
   }
 }

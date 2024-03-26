@@ -27,7 +27,6 @@ export class TarefasComponent implements OnInit {
 
       listarTarefas.subscribe(value => {
         this.tarefas = value;
-        console.log(this.tarefas);
       });
     });
   }

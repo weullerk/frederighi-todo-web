@@ -1,3 +1,4 @@
 export interface RequestResponseModel {
-  message: string;
+  message?: string;
+  error?: string;
 }
