@@ -14,7 +14,7 @@
 
         <div class="row justify-content-end">
           <div>
-              <button (click)="excluirTarefa()" type="button" class="btn btn-primary w-md">Excluir</button>
+              <button (click)="excluirTarefa()" [disabled]="operationMessage != ''" type="button" class="btn btn-primary w-md">Excluir</button>
               <button [routerLink]="['../../']" type="button" class="btn btn-danger w-md" style="margin-left: 1rem;">{{ operationMessage == '' ? 'Cancelar' : 'Voltar' }}</button>
             </div>
           </div>
