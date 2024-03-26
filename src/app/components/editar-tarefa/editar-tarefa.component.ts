@@ -4,7 +4,7 @@ import {TarefaService} from "../../services/TarefaService";
 import {State} from "../../reducers/app.reducer";
 import {Store} from "@ngrx/store";
 import {AuthState} from "../../reducers/auth.reducer";
-import {ActivatedRoute, ParamMap} from "@angular/router";
+import {ActivatedRoute, ParamMap, Router, RouterLink} from "@angular/router";
 import {RequestResponseModel} from "../../models/RequestResponseModel";
 import {TarefaModel} from "../../models/TarefaModel";
 import {NgIf} from "@angular/common";
@@ -14,7 +14,8 @@ import {NgIf} from "@angular/common";
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    NgIf
+    NgIf,
+    RouterLink
   ],
   templateUrl: './editar-tarefa.component.html',
   styleUrl: './editar-tarefa.component.scss'
@@ -32,7 +33,8 @@ export class EditarTarefaComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private tarefaService: TarefaService,
     private store: Store<State>,
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute,
+    public router: Router) {}
 
   ngOnInit() {
     this.editarTarefaForm = this.fb.group({

@@ -58,4 +58,16 @@ export class TarefaService {
 
     return this.httpClient.post<RequestResponseModel>(url, formData, requestOptions);
   }
+
+  excluir(id: number, token: string): Observable<RequestResponseModel> {
+    const url = environment.apiUrl + 'excluir-tarefa/' + id;
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+
+    const requestOptions = { headers: headers };
+
+    return this.httpClient.post<RequestResponseModel>(url, {}, requestOptions);
+  }
 }

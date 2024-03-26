@@ -3,14 +3,19 @@
     <div class="card-body">
       <h4 class="card-title mb-4">Confirmar exclusão de tarefa</h4>
 
+      <div class="alert alert-success" role="alert" *ngIf="operationMessage != ''">
+        {{ operationMessage }}
+      </div>
+
       <form class="col-xl-8">
         <div class="row mb-4">
-          <p><b>Preencher formulário de finanças</b></p>
+          <p><b>{{ descricao }}</b></p>
         </div>
 
         <div class="row justify-content-end">
           <div>
-              <button type="submit" class="btn btn-danger w-md">Excluir</button>
+              <button (click)="excluirTarefa()" type="button" class="btn btn-primary w-md">Excluir</button>
+              <button [routerLink]="['../../']" type="button" class="btn btn-danger w-md" style="margin-left: 1rem;">{{ operationMessage == '' ? 'Cancelar' : 'Voltar' }}</button>
             </div>
           </div>
       </form>

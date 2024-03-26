@@ -24,6 +24,8 @@
               <button type="submit" class="btn btn-primary w-md"
                       [disabled]="cadastrarTarefaForm.status === 'INVALID' && !cadastrarTarefaForm.pending"
                       (click)="cadastrarTarefa()">Cadastrar</button>
+              <button [routerLink]="['../']" class="btn btn-danger waves-effect waves-light" type="button" style="margin-left: 1rem;">Cancelar</button>
+
             </div>
           </div>
         </div>

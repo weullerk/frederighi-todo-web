@@ -5,13 +5,15 @@ import {Store} from "@ngrx/store";
 import {State} from "../../reducers/app.reducer";
 import {AuthState} from "../../reducers/auth.reducer";
 import {TarefaService} from "../../services/TarefaService";
+import {Router, RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-cadastrar-tarefa',
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    NgIf
+    NgIf,
+    RouterLink
   ],
   templateUrl: './cadastrar-tarefa.component.html',
   styleUrl: './cadastrar-tarefa.component.scss'
@@ -21,7 +23,7 @@ export class CadastrarTarefaComponent implements OnInit {
   responseMessage: string = '';
   authStoreState: AuthState;
 
-  constructor(private fb: FormBuilder, private store: Store<State>, private tarefaService: TarefaService) {
+  constructor(private fb: FormBuilder, private store: Store<State>, private tarefaService: TarefaService, public router: Router) {
   }
 
   ngOnInit(): void {

@@ -5,13 +5,15 @@ import {LoginService} from "../../services/LoginService";
 import {State} from "../../reducers/app.reducer";
 import {Store} from "@ngrx/store";
 import {Login} from "../../actions/auth.action";
+import {Router, RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
     NgIf,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
@@ -19,7 +21,10 @@ import {Login} from "../../actions/auth.action";
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private loginService: LoginService, private store: Store<State>) {
+  constructor(private fb: FormBuilder,
+              private loginService: LoginService,
+              private store: Store<State>,
+              public router: Router) {
   }
 
   ngOnInit() {
